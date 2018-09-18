@@ -13,7 +13,7 @@ import com.example.demo.dao.ILoginDAO;
 import com.example.demo.model.Klant;
 import com.example.demo.model.Login; 
 
-
+@Service
 public class LoginService implements ILoginService{
 	
 	@Autowired
@@ -23,9 +23,10 @@ public class LoginService implements ILoginService{
 	public Optional <Login> findOne(Long id){
 		
 		if (id < 0 )
-	return Optional.empty();
+			return Optional.empty();		
 		
-		return this.iLoginDAO.findByUsername(id); }
+		return this.iLoginDAO.findById(id); 
+	}
 	
 		
 		@Override
@@ -34,20 +35,9 @@ public class LoginService implements ILoginService{
 			if (username == null || username.isEmpty())
 				return this.iLoginDAO.findAll(); 
 			
-			return this.iLoginDAO.findByName(username); 
+			return this.iLoginDAO.findByUsername(username); 
 		}
-		
-		@Override
-		public List <Login> findByPassword (String password){
-			
-			if (password == null || password.isEmpty())
-			return this.iLoginDAO.findAll(); 
-			
-			return this.iLoginDAO.findByPassword(password); 
-			
-			
-		}
-
+	
 
 		@Override
 		public void update(Login login) {
@@ -60,6 +50,20 @@ public class LoginService implements ILoginService{
 		public void delete(Login login) {
 			// TODO Auto-generated method stub
 			
+		}
+
+
+		@Override
+		public List<Login> findAll() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public Login create(Login login) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 
 	

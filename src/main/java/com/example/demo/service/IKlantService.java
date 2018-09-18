@@ -7,7 +7,7 @@ import com.example.demo.model.Klant;
 
 public interface IKlantService {
 
-	Optional<Klant> findOne(Long id);
+	public Optional<Klant> findOne(Long id);
 	
 	public List <Klant> findAll(); 
 	

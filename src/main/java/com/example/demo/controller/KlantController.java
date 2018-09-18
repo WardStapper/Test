@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.service.KlantService;
 import com.example.demo.service.IKlantService;  
 import com.example.demo.model.Klant; 
 
@@ -20,11 +19,11 @@ import com.example.demo.model.Klant;
 public class KlantController {
 
 	@Autowired
-	private IKlantService IKlantService;
+	private IKlantService iKlantService;
 
 	@GetMapping("/api/klant/{id}")
 	public Klant findById(@PathVariable Long id) {
-		Optional<Klant> optional = this.IKlantService.findOne(id);
+		Optional<Klant> optional = this.iKlantService.findOne(id);
 
 		if (optional.isPresent())
 			return optional.get();
@@ -34,26 +33,26 @@ public class KlantController {
 
 	@GetMapping("/api/klant/all")
 	public List<Klant> findAll() {
-		return this.IKlantService.findAll();
+		return this.iKlantService.findAll();
 	}
 
 	@PostMapping("/api/klant")
 	public Klant create(@RequestBody Klant klant) {
-		return this.IKlantService.create(klant);
+		return this.iKlantService.create(klant);
 	}
 
 	@PutMapping("/api/klant/{id}")
 	public boolean update(@PathVariable Long id, @RequestBody Klant klant) {
-		this.IKlantService.update(klant);
+		this.iKlantService.update(klant);
 
 		return true;
 	}
 
 	@DeleteMapping("/api/klant/{id}")
 	public boolean delete(@PathVariable Long id) {
-		Optional<Klant> optional = this.IKlantService.findOne(id);
+		Optional<Klant> optional = this.iKlantService.findOne(id);
 		if (optional.isPresent()) {
-			this.IKlantService.delete(optional.get());
+			this.iKlantService.delete(optional.get());
 
 			return true;
 		}

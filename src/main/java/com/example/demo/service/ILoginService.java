@@ -3,25 +3,21 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-
 import com.example.demo.model.Login;
 
-public interface ILoginService {
+public interface ILoginService {	
 	
-	
 
-	List<Login> findByUsername(String username);
+	public List<Login> findByUsername(String username);
 
-	Optional<Login> findOne(Long id);
+	public Optional<Login> findOne(Long id);	
 
-	List<Login> findByPassword(String password);
+	public void update(Login login);
 
-	void update(Login login);
+	public void delete(Login login);
 
-	void delete(Login login);
+	public List<Login> findAll();
 
-
-
-
+	public Login create(Login login);
 
 }

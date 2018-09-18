@@ -37,12 +37,12 @@ public class KlantService implements IKlantService {
 		}
 		
 		@Override
-		public List <Klant> findByLastName(String lastName){
+		public List <Klant> findByLastName(String lastname){
 			
-			if (lastName == null || lastName.isEmpty())
+			if (lastname == null || lastname.isEmpty())
 			return this.iKlantDAO.findAll(); 
 			
-			return this.iKlantDAO.findByLastName(lastName); 
+			return this.iKlantDAO.findByLastname(lastname); 
 			
 			
 		}
@@ -91,13 +91,4 @@ public class KlantService implements IKlantService {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
-
-
-
-
-
-
 }

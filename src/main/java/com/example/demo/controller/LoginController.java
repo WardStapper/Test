@@ -1,3 +1,5 @@
+package com.example.demo.controller;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -10,13 +12,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.service.iLoginService;
 import com.example.demo.service.ILoginService;
-import com.example.demo.model.Klant;
 import com.example.demo.model.Login; 
 
-public class LoginController {
-	
+@RestController
+public class LoginController {	
 
 	@Autowired
 	private ILoginService iLoginService;
@@ -58,11 +58,6 @@ public class LoginController {
 		}
 
 		return false;
-	}
-
-
-	
-	
-	
+	}	
 
 }
